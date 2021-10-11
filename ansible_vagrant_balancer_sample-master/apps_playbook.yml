@@ -1,0 +1,20 @@
+---
+- hosts: app
+  sudo: yes
+  remote_user: vagrant
+  tasks:
+      - name: アプリファイルをコピー
+        copy: src=./web dest=/home/vagrant/
+      - name: index.htmlのホスト名を設定
+        lineinfile:
+          dest: /home/vagrant/web/index.html
+          regexp: '<li><strong>hostname:</strong> </li>'
+          line: '<li><strong>hostname:</strong> {{inventory_hostname}}</li>'
+      - name: SimpleHTTPServerを起動
+        # ここをデフォルトポート(8000)で起動していたらうまく動かなかった
+        # vagrantの設定で80と22のみ開放しているからかな？
+        command: python simpleserver.py 80 & chdir=/home/vagrant/web/
+        register: launch_app
+        # 超長い時間を指定して半永久的に起動
+        async: 999999999999999
+        poll: 0

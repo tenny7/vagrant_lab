@@ -1,0 +1,21 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script>
+    (function() {
+        document.addEventListener('DOMContentLoaded', function() {
+            var ul = document.querySelector('ul');
+            // URLの取得
+            var li = document.createElement('li');
+            li.innerHTML = "<strong>url:</strong> " + window.location.href;
+            ul.appendChild(li);
+        });
+    }());
+    </script>
+</head>
+<body>
+    <ul>
+        <li><strong>hostname:</strong> </li>
+    </ul>
+</body>
+</html>

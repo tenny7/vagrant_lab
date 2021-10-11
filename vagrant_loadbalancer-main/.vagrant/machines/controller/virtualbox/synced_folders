@@ -1,0 +1,1 @@
+{"virtualbox":{"/vagrant":{"mount_options":["umask=077","uid=1000","gid=1000","_netdev"],"guestpath":"/vagrant","hostpath":"/home/azureuser/Documents/devops/vagrant_loadbalancer-main","disabled":false,"__vagrantfile":true}}}

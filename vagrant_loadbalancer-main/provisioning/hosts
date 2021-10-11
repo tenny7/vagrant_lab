@@ -1,0 +1,7 @@
+controller ansible_connection=local
+ lb        ansible_host=172.17.177.21 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/lb/virtualbox/private_key
+ web1      ansible_host=172.17.177.22 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/web1/virtualbox/private_key
+ web2      ansible_host=172.17.177.23 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/web2/virtualbox/private_key
+ [nginx]
+ lb
+ web[1:2]
